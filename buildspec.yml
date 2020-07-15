@@ -1,0 +1,24 @@
+version: 0.2
+phases:
+  
+  pre_build:
+    commands:
+      - mkdir -p python 
+      - pip install -t ./python  -r requirements.txt 
+      - cd python
+      - zip -r9 my_func.zip .
+      - mv my_func.zip ../
+      - cd .. 
+      - ls
+      - zip -g my_func.zip disney-lambda-workspace.py
+      - ls
+  build:
+    commands:
+      - ls
+      - pwd
+      
+artifacts:
+  
+  files:
+    - my_func.zip
+    
